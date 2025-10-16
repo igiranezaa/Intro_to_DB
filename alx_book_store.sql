@@ -1,3 +1,34 @@
+-- alx_book_store.sql
+-- Task 0: Complete database schema for online bookstore
+
+-- Create Database
+CREATE DATABASE IF NOT EXISTS alx_book_store;
+USE alx_book_store;
+
+-- Authors Table
+CREATE TABLE IF NOT EXISTS Authors (
+    author_id INT PRIMARY KEY,
+    author_name VARCHAR(215)
+);
+
+-- Books Table
+CREATE TABLE IF NOT EXISTS Books (
+    book_id INT PRIMARY KEY,
+    title VARCHAR(130),
+    author_id INT,
+    price DOUBLE,
+    publication_date DATE,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
+);
+
+-- Customers Table
+CREATE TABLE IF NOT EXISTS Customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(215),
+    email VARCHAR(215),
+    address TEXT
+);
+
 -- Orders Table
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY,
